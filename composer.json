@@ -1,0 +1,28 @@
+{
+    "name": "ipotseluev/fast-order",
+    "description": "Fast Order Plugin",
+    "type": "shopware-platform-plugin",
+    "version": "1.0.0",
+    "license": "MIT",
+    "require": {
+        "shopware/core": "6.5.*"
+    },
+    "authors": [
+        {
+            "name": "Ilia Potseluev",
+            "role": "developer"
+        }
+    ],
+    "extra": {
+        "shopware-plugin-class": "Ipotseluev\\FastOrder\\IpotseluevFastOrder",
+        "label": {
+            "de-DE": "Schnelle Bestellung",
+            "en-GB": "Fast Order"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Ipotseluev\\FastOrder\\": "src/"
+        }
+    }
+}
