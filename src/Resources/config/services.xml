@@ -5,6 +5,26 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
+        <service id="Ipotseluev\FastOrder\Core\Content\FastOrder\FastOrderDefinition">
+            <tag name="shopware.entity.definition" entity="fast_order"/>
+        </service>
+        <service id="Ipotseluev\FastOrder\Command\FastOrderListCommand">
+            <tag name="console.command"/>
+            <argument type="service" id="fast_order.repository"/>
+            <argument key="$name">Show Fast Order List</argument>
+        </service>
 
+        <service id="Ipotseluev\FastOrder\Command\Helper\OptionCompletionFabric">
+            <argument type="service" id="product.repository"/>
+            <argument type="service" id="customer.repository"/>
+        </service>
+
+        <service id="Ipotseluev\FastOrder\Command\FastOrderCreateCommand">
+            <tag name="console.command"/>
+            <argument type="service" id="fast_order.repository"/>
+            <argument type="service" id="Ipotseluev\FastOrder\Command\Helper\OptionCompletionFabric"/>
+            <argument type="service" id="product.repository"/>
+            <argument key="$name">Create Fast Order</argument>
+        </service>
     </services>
 </container>

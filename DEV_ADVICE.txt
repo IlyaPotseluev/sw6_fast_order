@@ -1,0 +1,27 @@
+1. If you have PHPStorm trouble like: "Namespace name doesn't match the PSR-0/PSR-4 project structure":
+* Go to Settings -> Directories
+* Add that module to "Content Root" as other correct modules, and add namespace "Ipotseluev\FastOrder"
+
+
+2. To reinstall something:
+
+DROP TABLE: drop table fast_order;
+DROP ALL MIGRATIONS: delete from migration where class like '%FastOrder%';
+
+3. To debug CLI (docker-off environment):
+(use alias instead):
+XDEBUG_CONFIG=idekey=PHPSTORM bin/console database:migrate --all IpotseluevFastOrder
+
+
+4. Here you can debug FOREIGN_KEY troubles:
+vendor/shopware/core/Framework/DataAbstractionLayer/FieldSerializer/AbstractFieldSerializer.php:
+
+protected function validate
+
+Saving there:
+vendor/doctrine/dbal/src/Driver/PDO/Connection.php
+public function exec(string $sql): int
+
+
+5. bin/console ipotseluev:fast-order:create --product_number SWDEMO1000  <<TAB , just press TAB :)
+That is autocomplete

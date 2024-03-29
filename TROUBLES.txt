@@ -1,0 +1,6 @@
+1. Customer ID foreign KEY - NULL becomes BINARY, need to prevent it
+
+2. custom/plugins/IpotseluevFastOrder/src/Core/Content/FastOrder/FastOrderDefinition.php
+
+When I set property name productId instead of ProductID - fields become missing from entity...
+..foreign key??
