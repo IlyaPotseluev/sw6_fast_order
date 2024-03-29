@@ -77,7 +77,7 @@ class FastOrderCreateCommand extends Command
 
         $output->writeln('Fast Order with ID '.$dataToSave['id'].' has been created');
 
-        return 0;
+        return Command::SUCCESS;
     }
 
     private function _getReadyToSaveData(InputInterface $input)
