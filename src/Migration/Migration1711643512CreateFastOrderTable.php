@@ -48,18 +48,12 @@ class Migration1711643512CreateFastOrderTable extends MigrationStep
             `fk.fast_order.product_id`
         );
 
-        /*
-         * TODO: NULL foreign key becomes converted (after save) to BINARY that not existing in CUSTOMER
-         *
-         *
         $table->addForeignKeyConstraint(
             'customer',
             ['customer_id'], ['id'],
             ['onUpdate' => 'cascade', 'onDelete' => 'restrict'],
             `fk.fast_order.customer_id`
         );
-        *
-        */
 
         $schema->createTable($table);
 

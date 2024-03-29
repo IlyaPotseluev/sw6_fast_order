@@ -25,3 +25,8 @@ public function exec(string $sql): int
 
 5. bin/console ipotseluev:fast-order:create --product_number SWDEMO1000  <<TAB , just press TAB :)
 That is autocomplete
+
+Command default:
+
+bin/console ipotseluev:fast-order:create --product_number SWDEMO10006 --customer_name "Some One Two" --customer_phone "+7999" --customer_email "ans"
+bin/console ipotseluev:fast-order:list
