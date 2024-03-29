@@ -1,0 +1,11 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/buy-widget-form.html.twig' %}
+{% block page_product_detail_buy_button_container %}
+    {{ parent() }}
+    {% if product.customFields['fast_order_enabled'] %}
+        <!-- Button trigger modal -->
+        {% block page_product_detail_fast_order_button_container %}
+            <p>There are should be button If Fast Order Enabled ![And do not forget about translations]! </p>
+            {% sw_include '@IpotseluevFastOrder/storefront/page/product-detail/buy-widget-form/fast-order-popup-btn.html.twig' with {button_class: 'btn btn-primary'} %}
+        {% endblock %}
+    {% endif %}
+{% endblock %}
