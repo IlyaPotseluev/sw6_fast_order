@@ -1,0 +1,17 @@
+<!-- https://developer.shopware.com/docs/guides/plugins/plugins/storefront/add-translations.html#using-the-translation-in-templates -->
+
+<label class="input-label" for="customer_name"><span>{{ 'fastOrder.form.customerNameInputText' | trans }}</span></label>
+<input name="customer_name" required type="text" id="modal-customer-name-label"/>
+
+<label class="input-label" for="customer_email">{{ 'fastOrder.form.customerEmailInputText' | trans }}</label>
+<input name="customer_email" required type="text" id="modal-customer-email-label"/>
+
+<label class="input-label" for="customer_phone">{{ 'fastOrder.form.customerPhoneInputText' | trans }}</label>
+<input name="customer_phone" required type="text" id="modal-customer-phone-label"/>
+
+<label class="input-label" for="customer_message">{{ 'fastOrder.form.customerMessageInputText' | trans }}</label>
+<textarea name="customer_message" id="modal-customer-message-label"></textarea>
+<input type="hidden" required name="product_id" value="{{ product.id }}"/>
+
+<!--TODO: get customer id in some way -->
+<input type="hidden" name="customer_id" value=""/>

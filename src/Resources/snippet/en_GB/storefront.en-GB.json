@@ -1,0 +1,14 @@
+{
+  "fastOrder": {
+    "form": {
+      "customerNameInputText": "Please input your name",
+      "customerPhoneInputText": "Your contact phone",
+      "customerEmailInputText": "Your contact email",
+      "customerMessageInputText": "Any details about product (optionally)",
+      "placeOrderText": "Place Order",
+      "closeModalButtonText": "Close",
+      "annotation": "Please, complete the fields"
+    }
+
+  }
+}

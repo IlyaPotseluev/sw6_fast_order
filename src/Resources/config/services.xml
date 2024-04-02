@@ -5,20 +5,22 @@
            xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
 
     <services>
+        <!-- ENTITY DEFINITION: START -->
         <service id="Ipotseluev\FastOrder\Core\Content\FastOrder\FastOrderDefinition">
             <tag name="shopware.entity.definition" entity="fast_order"/>
         </service>
+        <!-- ENTITY DEFINITION: END -->
+
+        <!-- CLI COMMANDS: START -->
         <service id="Ipotseluev\FastOrder\Command\FastOrderListCommand">
             <tag name="console.command"/>
             <argument type="service" id="fast_order.repository"/>
             <argument key="$name">Show Fast Order List</argument>
         </service>
-
         <service id="Ipotseluev\FastOrder\Command\Helper\OptionCompletionFabric">
             <argument type="service" id="product.repository"/>
             <argument type="service" id="customer.repository"/>
         </service>
-
         <service id="Ipotseluev\FastOrder\Command\FastOrderCreateCommand">
             <tag name="console.command"/>
             <argument type="service" id="fast_order.repository"/>
@@ -26,5 +28,28 @@
             <argument type="service" id="product.repository"/>
             <argument key="$name">Create Fast Order</argument>
         </service>
+        <!-- CLI COMMANDS: END -->
+
+        <!-- STOREFRONT CONTROLLERS: START -->
+
+        <!-- Route for fast order entity -->
+        <service id="Ipotseluev\FastOrder\Core\Content\FastOrder\SalesChannel\FastOrderEntityRoute\PostRequestValidator">
+        </service>
+
+        <service id="Ipotseluev\FastOrder\Core\Content\FastOrder\SalesChannel\FastOrderEntityRoute">
+            <argument type="service" id="fast_order.repository"/>
+            <argument type="service" id="Ipotseluev\FastOrder\Core\Content\FastOrder\SalesChannel\FastOrderEntityRoute\PostRequestValidator"/>
+        </service>
+
+        <!-- Controller that use entity above -->
+        <service id="Ipotseluev\FastOrder\Storefront\Controller\FastOrderJsonController" public="true">
+            <!-- Setter Injection that actually set container [vendor/symfony/dependency-injection/Container.php]
+             to vendor/symfony/framework-bundle/Controller/AbstractController.php; No using  -->
+            <call method="setContainer">
+                <argument type="service" id="service_container"/>
+            </call>
+            <argument type="service" id="Ipotseluev\FastOrder\Core\Content\FastOrder\SalesChannel\FastOrderEntityRoute"/>
+        </service>
+        <!-- STOREFRONT CONTROLLERS: END -->
     </services>
 </container>

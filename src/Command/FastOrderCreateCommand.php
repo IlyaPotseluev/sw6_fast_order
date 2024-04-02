@@ -133,7 +133,7 @@ class FastOrderCreateCommand extends Command
             $helpText .= PHP_EOL;
         }
 
-        $helpText .= 'Example: bin/console ipotseluev:fast-order:create --product_number SWDEMO10006 --customer_name "Ilia Potseluev" --customer_phone "+7999" --customer_email "poceluevilya@gmail.com"' . PHP_EOL;
+        $helpText .= 'Example: bin/console ipotseluev:fast-order:create --product_number SWDEMO10007.2 --customer_name "Ilia Potseluev" --customer_phone "+7999" --customer_email "poceluevilya@gmail.com"' . PHP_EOL;
         $helpText.= 'Also you can use autosuggesting on --product number SWDEMO1000 + TAB';
         $this->setHelp($helpText);
     }

@@ -1,0 +1,37 @@
+<!-- Modal -->
+<div class="modal fade" id="fastOrderModal" tabindex="-1" role="dialog" aria-labelledby="fastOrderModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <form method="post" class="fast-order-form" action="{{ path('frontend.fast-order.json') }}" data-form-ajax-submit="true">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="fastOrderModalLabel">Fast Order</h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- insert your content here -->
+                    <p>{{ 'fastOrder.form.annotation' | trans }}</p>
+                    {% sw_include '@IpotseluevFastOrder/storefront/page/product-detail/buy-widget-form/form-fields.html.twig' with {product: product} %}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{{ 'fastOrder.form.closeModalButtonText' | trans }}</button>
+                    <button
+                            type="submit"
+                            onclick=""
+                            class="btn btn-primary">{{ 'fastOrder.form.placeOrderText' | trans }}</button>
+
+                    <!-- TODO: Such thing does not work - because it only for GET
+                    But we can add a button with retrieving PROMOCODE if available, in future
+                    <button type="button"
+                            data-ajax-modal="true"
+                            data-url=""
+                            class="btn btn-primary">Save changes</button>
+
+                            -->
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
