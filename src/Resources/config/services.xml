@@ -42,11 +42,14 @@
         </service>
 
         <!-- Controller that use entity above -->
-        <service id="Ipotseluev\FastOrder\Storefront\Controller\FastOrderJsonController" public="true">
+        <service id="Ipotseluev\FastOrder\Storefront\Controller\FastOrderController" public="true">
             <!-- Setter Injection that actually set container [vendor/symfony/dependency-injection/Container.php]
              to vendor/symfony/framework-bundle/Controller/AbstractController.php; No using  -->
             <call method="setContainer">
                 <argument type="service" id="service_container"/>
+            </call>
+            <call method="setTwig">
+                <argument type="service" id="twig"/>
             </call>
             <argument type="service" id="Ipotseluev\FastOrder\Core\Content\FastOrder\SalesChannel\FastOrderEntityRoute"/>
         </service>

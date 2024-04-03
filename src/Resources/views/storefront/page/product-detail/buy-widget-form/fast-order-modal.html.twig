@@ -2,7 +2,19 @@
 <div class="modal fade" id="fastOrderModal" tabindex="-1" role="dialog" aria-labelledby="fastOrderModalLabel"
      aria-hidden="true">
     <div class="modal-dialog" role="document">
-        <form method="post" class="fast-order-form" action="{{ path('frontend.fast-order.json') }}" data-form-ajax-submit="true">
+        <!-- TODO: if there an error: button should be available to resend; now it is blocked -->
+        {% set formAjaxSubmitOptions = {
+            skipLoadingIndicator: true,
+            replaceSelectors: ['.modal-body']
+
+        } %}
+        <form method="post" class="fast-order-form"
+              action="{{ path('frontend.fast-order.create') }}"
+              data-form-ajax-submit="true"
+              data-form-submit-loader="true"
+              data-form-validation="true"
+              data-form-ajax-submit-options="{{ formAjaxSubmitOptions|json_encode }}"
+        >
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="fastOrderModalLabel">Fast Order</h5>
@@ -10,7 +22,19 @@
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body">
+                <div class="modal-body" id="modal-body">
+                    {% set responseStatus = element.data.status %}
+                    {% if status == 1 %}
+                        {% sw_include '@Storefront/storefront/utilities/alert.html.twig' with {
+                            type: "success",
+                            content: "fastOrder.form.successMessage"|trans|sw_sanitize
+                        } %}
+                    {% elseif status == -1 %}
+                        {% sw_include '@Storefront/storefront/utilities/alert.html.twig' with {
+                            type: "danger",
+                            content: "fastOrder.form.errorMessage"|trans|sw_sanitize
+                        } %}
+                    {% endif %}
                     <!-- insert your content here -->
                     <p>{{ 'fastOrder.form.annotation' | trans }}</p>
                     {% sw_include '@IpotseluevFastOrder/storefront/page/product-detail/buy-widget-form/form-fields.html.twig' with {product: product} %}

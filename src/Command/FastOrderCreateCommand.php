@@ -92,6 +92,7 @@ class FastOrderCreateCommand extends Command
             $dataToSave[$entityAttribute] = $input->getOption($entityAttribute);
         }
         $dataToSave['productId'] = $productResult->get('id');
+        $dataToSave['customerMessage'] = $dataToSave['customer_message'];
 
         array_filter($dataToSave);
 

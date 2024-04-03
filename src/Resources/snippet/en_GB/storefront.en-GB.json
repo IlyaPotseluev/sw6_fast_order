@@ -7,7 +7,9 @@
       "customerMessageInputText": "Any details about product (optionally)",
       "placeOrderText": "Place Order",
       "closeModalButtonText": "Close",
-      "annotation": "Please, complete the fields"
+      "annotation": "Please, complete the fields",
+      "successMessage": "Your order has been successfully placed.",
+      "errorMessage": "Something went wrong. Check that all fields are filled correctly."
     }
 
   }
