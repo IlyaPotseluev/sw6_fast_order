@@ -48,3 +48,11 @@ More:
 
 https://developer.shopware.com/docs/guides/plugins/plugins/storefront/add-data-to-storefront-page.html
 
+8. If you want to understand how ajax form submits and past the data:
+
+_onAfterAjaxSubmit - in all.js
+
+Or
+
+0)vendor/shopware/storefront/Resources/app/storefront/src/main.js - a lot of stuff
+1) vendor/shopware/storefront/Resources/app/storefront/src/plugin/forms/form-ajax-submit.plugin.js -> _onAfterAjaxSubmit
