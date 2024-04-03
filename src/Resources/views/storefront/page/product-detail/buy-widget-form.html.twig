@@ -1,0 +1,17 @@
+{% sw_extends '@Storefront/storefront/page/product-detail/buy-widget-form.html.twig' %}
+{% block page_product_detail_buy_form_inner %}
+    {{ parent() }}
+    <!-- I put it there [after parent] to avoid form-in-form conflict with add to cart -->
+    {% set product = page.product %}
+    {% sw_include '@IpotseluevFastOrder/storefront/page/product-detail/buy-widget-form/fast-order-modal.html.twig' with {product: product} %}
+{% endblock %}
+
+{% block page_product_detail_buy_button_container %}
+    {{ parent() }}
+    {% if product.customFields['fast_order_enabled'] %}
+        <!-- Button trigger modal -->
+        {% block page_product_detail_fast_order_button_container %}
+            {% sw_include '@IpotseluevFastOrder/storefront/page/product-detail/buy-widget-form/fast-order-modal-call-btn.html.twig' with {button_class: 'btn btn-primary'} %}
+        {% endblock %}
+    {% endif %}
+{% endblock %}

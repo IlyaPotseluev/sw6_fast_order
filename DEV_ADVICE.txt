@@ -30,3 +30,29 @@ Command default:
 
 bin/console ipotseluev:fast-order:create --product_number SWDEMO10006 --customer_name "Some One Two" --customer_phone "+7999" --customer_email "ans"
 bin/console ipotseluev:fast-order:list
+
+
+6. To remove custom field for product:
+(it will delete all dependencies like custom_field an relations)
+delete from custom_field_set where name = 'fast_order_set';
+
+7. If you want to know - how data goes to the page, you should look here:
+
+vendor/shopware/storefront/Controller/ProductController.php
+$page = $this->productPageLoader->load($request, $context);
+
+$page contains Product. Product contains customFields.
+So, no special thing. If you want to add something from yourself, like buttonText - probably
+you need to add eventListener (or subsrciber) to push it to $page.
+More:
+
+https://developer.shopware.com/docs/guides/plugins/plugins/storefront/add-data-to-storefront-page.html
+
+8. If you want to understand how ajax form submits and past the data:
+
+_onAfterAjaxSubmit - in all.js
+
+Or
+
+0)vendor/shopware/storefront/Resources/app/storefront/src/main.js - a lot of stuff
+1) vendor/shopware/storefront/Resources/app/storefront/src/plugin/forms/form-ajax-submit.plugin.js -> _onAfterAjaxSubmit
