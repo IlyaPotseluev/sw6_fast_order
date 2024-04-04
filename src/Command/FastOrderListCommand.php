@@ -5,6 +5,7 @@ namespace Ipotseluev\FastOrder\Command;
 use Shopware\Core\Framework\Context;
 use Shopware\Core\Framework\DataAbstractionLayer\EntityRepository;
 use Shopware\Core\Framework\DataAbstractionLayer\Search\Criteria;
+use Shopware\Core\Framework\DataAbstractionLayer\Search\Filter\EqualsFilter;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Helper\Table;
 use Symfony\Component\Console\Input\InputInterface;
@@ -29,7 +30,10 @@ class FastOrderListCommand extends Command
     // Actual code executed in the command
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $searchResult = $this->fastOrderRepository->search(new Criteria(), Context::createDefaultContext());
+        $criteria = new Criteria();
+        /*TODO: just for study purposes... */
+        $criteria->addAssociation('product');
+        $searchResult = $this->fastOrderRepository->search($criteria, Context::createDefaultContext());
 
         $table = new Table($output);
 

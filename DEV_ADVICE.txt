@@ -56,3 +56,16 @@ Or
 
 0)vendor/shopware/storefront/Resources/app/storefront/src/main.js - a lot of stuff
 1) vendor/shopware/storefront/Resources/app/storefront/src/plugin/forms/form-ajax-submit.plugin.js -> _onAfterAjaxSubmit
+
+9)
+
+vendor/shopware/core/Framework/DataAbstractionLayer/CompiledFieldCollection.php - autoload on getBasicFields
+
+You need to addAssociations to Criteria to get joined fields
+
+
+10) To optimize admin style building:
+
+export DISABLE_ADMIN_COMPILATION_TYPECHECK=1
+export SHOPWARE_ADMIN_BUILD_ONLY_EXTENSIONS=1
+export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
