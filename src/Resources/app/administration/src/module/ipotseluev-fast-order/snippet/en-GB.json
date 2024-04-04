@@ -1,0 +1,33 @@
+{
+    "ipotseluev-fast-order": {
+        "general": {
+            "mainMenuItemGeneral": "Fast Order",
+            "mainMenuItemGeneral2": "Fast Order 2",
+
+            "descriptionTextModule": "Manage this custom module here"
+        },
+        "list": {
+            "addButtonText": "Add Fast Order",
+            "columnProduct": "Product",
+            "columnCustomer": "Customer",
+            "columnCustomerName": "Customer Name",
+            "columnCustomerEmail": "Customer Email",
+            "columnCustomerPhone": "Customer Phone",
+            "columnCustomerMessage": "Customer Message",
+            "columnCreatedAt": "Created At",
+            "columnUpdatedAt": "Updated At"
+        },
+        "detail": {
+            "nameLabel": "Name",
+            "discountLabel": "Discount",
+            "discountTypeLabel": "Discount type",
+            "assignProductsLabel" : "Assign Products",
+            "cancelButtonText": "Cancel",
+            "saveButtonText": "Save",
+            "errorTitle": "Error saving the example",
+            "absoluteText": "Absolute",
+            "percentageText": "Percentage"
+
+        }
+    }
+}
