@@ -13,20 +13,6 @@
             </template>
         {% endblock %}
 
-        <!-- two slots - actions and content #slot_name -->
-        <!--difference
-         vu js - using existing component and reconfigure it to your needs
-         blocks - for overriding from twig
-         -->
-        {% block ipotseluev_fast_order_list_smart_bar_actions %}
-            <!-- If anyone wants to override anything - we have above block -->
-            <template #smart-bar-actions>
-            <sw-button variant="primary" :routerLink="{ name: 'ipotseluev.fast.order.create' }">
-                {{ $tc('ipotseluev-fast-order.list.addButtonText') }}
-            </sw-button>
-        </template>
-        {% endblock %}
-
         <template #content>
             {% block ipotseluev_fast_order_list_content %}
             <sw-entity-listing
@@ -58,8 +44,6 @@
                 {% endblock %}
             </sw-entity-listing>
             {% endblock %}
-
-
         </template>
     </sw-page>
 {% endblock %}

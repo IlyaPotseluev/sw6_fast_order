@@ -1,0 +1,53 @@
+{% block ipotseluev_fast_order_detail %}
+    <sw-page class="ipotseluev-fast-order-detail">
+        {% block ipotseluev_fast_order_detail_smart_bar_actions %}
+            <!-- If anyone wants to override anything - we have above block -->
+            <template #smart-bar-actions>
+                <sw-button variant="primary" :routerLink="{ name: 'ipotseluev.fast.order.index' }">
+                    {{ $tc('ipotseluev-fast-order.detail.cancelButtonText') }}
+                </sw-button>
+                <!-- Methods inside -->
+                <sw-button-process
+                        :isLoading="isLoading"
+                        :processSuccess="processSuccess"
+                        variant="primary"
+                        @process-finish="saveFinish"
+                        @click="onClickSave"
+                >
+                    {{ $tc('ipotseluev-fast-order.detail.saveButtonText') }}
+                </sw-button-process>
+            </template>
+        {% endblock %}
+
+        <!-- sw-many-to-many select if field type from admin that allows select multiple entites and connect them to bundle -->
+        <template #content>
+            {% block ipotseluev_fast_order_detail_content %}
+                <sw-card-view>
+                    <sw-card v-if="fastOrder" :isLoading="isLoading">
+                        <sw-field v-model="fastOrder.customer_name" :label="$tc('ipotseluev-fast-order.detail.inputCustomerName')"></sw-field>
+                        <sw-field v-model="fastOrder.customer_email" :label="$tc('ipotseluev-fast-order.detail.inputCustomerEmail')"></sw-field>
+                        <sw-field v-model="fastOrder.customer_phone" :label="$tc('ipotseluev-fast-order.detail.inputCustomerPhone')"></sw-field>
+                        <sw-field v-model="fastOrder.customerMessage" :label="$tc('ipotseluev-fast-order.detail.inputCustomerMessage')"></sw-field>
+
+                        <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+                        {% block ipotseluev_fast_order_base_metadata_product %}
+                            <sw-description-list>
+                                <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+                                {% block ipotseluev_fast_order_base_metadata_product_label %}
+                                    <dt class="sw-fast-order-base-info__label">
+                                        {{ $tc('ipotseluev-fast-order.detail.labelProduct') }}
+                                    </dt>
+                                {% endblock %}
+
+                                <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+                                {% block sw_customer_base_metadata_product_content %}
+                                    <dd>{{ fastOrder.product.productNumber }}</dd>
+                                {% endblock %}
+                            </sw-description-list>
+                        {% endblock %}
+                    </sw-card>
+                </sw-card-view>
+            {% endblock %}
+        </template>
+    </sw-page>
+{% endblock %}

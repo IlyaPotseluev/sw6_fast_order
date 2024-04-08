@@ -8,13 +8,8 @@ const { Mixin } = Shopware;
 Component.register('ipotseluev-fast-order-list', {
     name: "Fast Order",
     template,
-    inject: [
-        //Using API here - pooled from the Container
-        'repositoryFactory'
-    ],
-    mixins: [
-        Mixin.getByName('listing'),
-    ],
+    inject: ['repositoryFactory', 'acl'],
+    mixins: [Mixin.getByName('listing')],
     data() {
         //We make sure there no properties before it executing something
         return {
@@ -65,6 +60,7 @@ Component.register('ipotseluev-fast-order-list', {
     methods: {
         createdComponent() {
             this.getList();
+
         },
         getList() {
             this.isLoading = true;
@@ -74,6 +70,11 @@ Component.register('ipotseluev-fast-order-list', {
                 this.total = result.total;
                 this.fastOrders = result;
                 this.isLoading = false;
+            });
+        },
+        loadCustomFieldSets() {
+            this.customFieldDataProviderService.getCustomFieldSets('fast_order').then((sets) => {
+                this.customFieldSets = sets;
             });
         },
         getColumns() {

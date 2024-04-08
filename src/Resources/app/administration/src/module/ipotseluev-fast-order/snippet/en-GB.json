@@ -17,16 +17,20 @@
             "placeholderSearchBar": "Search fast order..."
         },
         "detail": {
-            "nameLabel": "Name",
-            "discountLabel": "Discount",
-            "discountTypeLabel": "Discount type",
+            "nameLabel": "Fast Order",
+            "addButtonText": "Add Fast Order",
+            "inputProduct": "Product",
+            "inputCustomer": "Customer",
+            "inputCustomerName": "Customer Name",
+            "inputCustomerEmail": "Customer Email",
+            "inputCustomerPhone": "Customer Phone",
+            "inputCustomerMessage": "Customer Message",
+            "inputCreatedAt": "Created At",
+            "inputUpdatedAt": "Updated At",
             "assignProductsLabel" : "Assign Products",
             "cancelButtonText": "Cancel",
             "saveButtonText": "Save",
-            "errorTitle": "Error saving the example",
-            "absoluteText": "Absolute",
-            "percentageText": "Percentage"
-
+            "labelProduct": "Product Number"
         }
     }
 }

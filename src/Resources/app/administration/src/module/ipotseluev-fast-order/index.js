@@ -1,6 +1,5 @@
 import './page/ipotseluev-fast-order-list';
 import './page/ipotseluev-fast-order-detail';
-import './page/ipotseluev-fast-order-create';
 
 
 import deDE from "./snippet/de-DE.json";
