@@ -2,9 +2,7 @@
     "ipotseluev-fast-order": {
         "general": {
             "mainMenuItemGeneral": "Fast Order",
-            "mainMenuItemGeneral2": "Fast Order 2",
-
-            "descriptionTextModule": "Manage this custom module here"
+            "descriptionTextModule": "Module that allows to create fast order on product detail page"
         },
         "list": {
             "addButtonText": "Add Fast Order",
@@ -15,7 +13,8 @@
             "columnCustomerPhone": "Customer Phone",
             "columnCustomerMessage": "Customer Message",
             "columnCreatedAt": "Created At",
-            "columnUpdatedAt": "Updated At"
+            "columnUpdatedAt": "Updated At",
+            "placeholderSearchBar": "Search fast order..."
         },
         "detail": {
             "nameLabel": "Name",

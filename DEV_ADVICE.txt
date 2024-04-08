@@ -69,3 +69,6 @@ You need to addAssociations to Criteria to get joined fields
 export DISABLE_ADMIN_COMPILATION_TYPECHECK=1
 export SHOPWARE_ADMIN_BUILD_ONLY_EXTENSIONS=1
 export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
+
+11) DEBUG getQueryFields in vendor/shopware/core/Framework/DataAbstractionLayer/Search/Term/EntityScoreQueryBuilder.php
+if do not understand how definition and association work when you search by joined fields

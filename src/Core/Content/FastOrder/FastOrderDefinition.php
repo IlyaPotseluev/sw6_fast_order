@@ -40,6 +40,7 @@ class FastOrderDefinition extends EntityDefinition
     {
         return new FieldCollection([
             (new IdField('id', 'id'))->addFlags(new PrimaryKey(), new Required()),
+                                                                                                                                /* ApiAware makes field available in Store or Admin API */
             (new FkField('product_id', 'productId', ProductDefinition::class))->addFlags(new ApiAware(), new Required()),
             new FkField('customer_id', 'customerId', CustomerDefinition::class),
             (new StringField('customer_name', 'customer_name'))->addFlags(new Required()),
@@ -52,8 +53,8 @@ class FastOrderDefinition extends EntityDefinition
             //(new ManyToManyAssociationField('productId', ProductDefinition::class, ProductTagDefinition::class, 'product_id', 'id'))->addFlags(new CascadeDelete()),
             new CreatedAtField(),
             new UpdatedAtField(),
-            (new ManyToOneAssociationField('product', 'product_id', ProductDefinition::class, 'id', false)),
-            (new ManyToOneAssociationField('customer', 'customer_id', CustomerDefinition::class, 'id', false)),
+            (new ManyToOneAssociationField('product', 'product_id', ProductDefinition::class, 'id', false))->addFlags(new SearchRanking(SearchRanking::ASSOCIATION_SEARCH_RANKING)),
+            (new ManyToOneAssociationField('customer', 'customer_id', CustomerDefinition::class, 'id', false))->addFlags(new SearchRanking(SearchRanking::MIDDLE_SEARCH_RANKING)),
 
         ]);
     }

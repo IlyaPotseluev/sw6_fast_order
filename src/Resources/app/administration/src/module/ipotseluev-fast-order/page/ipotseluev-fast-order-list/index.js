@@ -2,12 +2,18 @@ import template from './ipotseluev-fast-order-list.html.twig';
 
 const {Component} = Shopware;
 const {Criteria} = Shopware.Data;
+const { Mixin } = Shopware;
+
 
 Component.register('ipotseluev-fast-order-list', {
+    name: "Fast Order",
     template,
     inject: [
         //Using API here - pooled from the Container
         'repositoryFactory'
+    ],
+    mixins: [
+        Mixin.getByName('listing'),
     ],
     data() {
         //We make sure there no properties before it executing something
@@ -37,7 +43,6 @@ Component.register('ipotseluev-fast-order-list', {
         },
         criteria() {
             const criteria = new Criteria(this.page, this.limit);
-
             criteria.setTerm(this.term);
 
             this.sortBy.split(',').forEach(sorting => {
@@ -47,6 +52,9 @@ Component.register('ipotseluev-fast-order-list', {
             criteria.addAssociation('product');
 
             return criteria;
+        },
+        dateFilter() {
+            return Shopware.Filter.getByName('date');
         },
     },
 
@@ -116,13 +124,13 @@ Component.register('ipotseluev-fast-order-list', {
                 },
                 {
                     property: 'updatedAt',
-                    label: this.$tc('ipotseluev-fast-order.list.columnCreatedAt'),
+                    label: this.$tc('ipotseluev-fast-order.list.columnUpdatedAt'),
                     routerLink: 'ipotseluev.fast.order.detail',
                     allowResize: true,
                 },
                 {
                     property: 'createdAt',
-                    label: this.$tc('ipotseluev-fast-order.list.columnUpdatedAt'),
+                    label: this.$tc('ipotseluev-fast-order.list.columnCreatedAt'),
                     routerLink: 'ipotseluev.fast.order.detail',
                     allowResize: true,
                 }
