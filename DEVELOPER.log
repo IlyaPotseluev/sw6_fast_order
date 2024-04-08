@@ -17,7 +17,7 @@ Future Features:
 2) Apply discount if fast order - on convertation
 3) Select different rules on different conditions if fast order
 
-
-
-
-Everything should be good
+Need to do:
+1. Email notification on Fast Order Create event
+2. Feature for sending mail from admin to customer
+3.

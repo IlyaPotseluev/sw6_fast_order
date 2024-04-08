@@ -1,0 +1,49 @@
+{% block ipotseluev_fast_order_list %}
+    <sw-page class="ipotseluev-fast-order-list">
+        <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+        {% block ipotseluev_fast_order_list_search_bar %}
+            <template #search-bar>
+                <sw-search-bar
+                        initial-search-type="fast_order"
+                        :initial-search="term"
+                        :label="$tc('ipotseluev-fast-order.list.placeholderSearchBar')"
+                        :placeholder="$tc('ipotseluev-fast-order.list.placeholderSearchBar')"
+                        @search="onSearch"
+                />
+            </template>
+        {% endblock %}
+
+        <template #content>
+            {% block ipotseluev_fast_order_list_content %}
+            <sw-entity-listing
+                    v-if="fastOrders"
+                    :items="fastOrders"
+                    :repository="repository"
+                    :showSelection="false"
+                    :columns="columns"
+                    detailRoute="ipotseluev.fast.order.detail"
+            >
+                {% block ipotseluev_fast_order_list_content_list_product %}
+                    <template #column-product="{ item }">
+                        <template v-if="item.productId">
+                            <router-link :to="{ name: 'sw.product.detail', params: { id: item.productId } }">
+                                {{ item.product.productNumber }}
+                            </router-link>
+                        </template>
+                    </template>
+                {% endblock %}
+                {% block ipotseluev_fast_order_list_content_list_created_at %}
+                    <template #column-createdAt="{ item }">
+                        {{ dateFilter(item.createdAt, { hour: '2-digit', minute: '2-digit', second: '2-digit' }) }}
+                    </template>
+                {% endblock %}
+                {% block ipotseluev_fast_order_list_content_list_created_at %}
+                    <template #column-updatedAt="{ item }">
+                        {{ dateFilter(item.updatedAt, { hour: '2-digit', minute: '2-digit', second: '2-digit' }) }}
+                    </template>
+                {% endblock %}
+            </sw-entity-listing>
+            {% endblock %}
+        </template>
+    </sw-page>
+{% endblock %}

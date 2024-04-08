@@ -1,0 +1,9 @@
+1. Customer ID foreign KEY - NULL becomes BINARY, need to prevent it (SOLVED)
+
+2. custom/plugins/IpotseluevFastOrder/src/Core/Content/FastOrder/FastOrderDefinition.php
+
+ productId -> product_id - definitions  (still does not solved)
+
+ 3. Add loader, success notice on fast order creation (SOLVED)
+
+

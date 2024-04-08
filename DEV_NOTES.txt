@@ -1,9 +1,8 @@
 1. If you have PHPStorm trouble like: "Namespace name doesn't match the PSR-0/PSR-4 project structure":
 * Go to Settings -> Directories
 * Add that module to "Content Root" as other correct modules, and add namespace "Ipotseluev\FastOrder"
-
-
-2. To reinstall something:
+--------------
+2. To reinstall module:
 
 DROP TABLE: drop table fast_order;
 DROP ALL MIGRATIONS: delete from migration where class like '%FastOrder%';
@@ -11,30 +10,30 @@ DROP ALL MIGRATIONS: delete from migration where class like '%FastOrder%';
 3. To debug CLI (docker-off environment):
 (use alias instead):
 XDEBUG_CONFIG=idekey=PHPSTORM bin/console database:migrate --all IpotseluevFastOrder
-
-
+--------------
 4. Here you can debug FOREIGN_KEY troubles:
-vendor/shopware/core/Framework/DataAbstractionLayer/FieldSerializer/AbstractFieldSerializer.php:
 
-protected function validate
+vendor/shopware/core/Framework/DataAbstractionLayer/FieldSerializer/AbstractFieldSerializer.php:
+protected function validate <<
 
 Saving there:
 vendor/doctrine/dbal/src/Driver/PDO/Connection.php
-public function exec(string $sql): int
+public function exec(string $sql): int <<
+--------------
+5. AUTOCOMPLETE PRODUCT NUMBER FEATURE IN CLI
 
-
-5. bin/console ipotseluev:fast-order:create --product_number SWDEMO1000  <<TAB , just press TAB :)
+bin/console ipotseluev:fast-order:create --product_number SWDEMO1000  <<TAB , just press TAB :)
 That is autocomplete
 
 Command default:
 
 bin/console ipotseluev:fast-order:create --product_number SWDEMO10006 --customer_name "Some One Two" --customer_phone "+7999" --customer_email "ans"
 bin/console ipotseluev:fast-order:list
-
-
+--------------
 6. To remove custom field for product:
 (it will delete all dependencies like custom_field an relations)
 delete from custom_field_set where name = 'fast_order_set';
+--------------
 
 7. If you want to know - how data goes to the page, you should look here:
 
@@ -47,6 +46,7 @@ you need to add eventListener (or subsrciber) to push it to $page.
 More:
 
 https://developer.shopware.com/docs/guides/plugins/plugins/storefront/add-data-to-storefront-page.html
+--------------
 
 8. If you want to understand how ajax form submits and past the data:
 
@@ -56,3 +56,24 @@ Or
 
 0)vendor/shopware/storefront/Resources/app/storefront/src/main.js - a lot of stuff
 1) vendor/shopware/storefront/Resources/app/storefront/src/plugin/forms/form-ajax-submit.plugin.js -> _onAfterAjaxSubmit
+
+----------------------------
+
+
+9. vendor/shopware/core/Framework/DataAbstractionLayer/CompiledFieldCollection.php - autoload on getBasicFields
+
+You need to addAssociations to Criteria to get joined fields
+
+
+10) To optimize admin style building:
+
+export DISABLE_ADMIN_COMPILATION_TYPECHECK=1
+export SHOPWARE_ADMIN_BUILD_ONLY_EXTENSIONS=1
+export PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
+
+11) JOINED FIELDS FOR ADMIN SEARCH
+
+DEBUG getQueryFields in vendor/shopware/core/Framework/DataAbstractionLayer/Search/Term/EntityScoreQueryBuilder.php
+if do not understand how definition and association work when you search by joined fields
+
+12)

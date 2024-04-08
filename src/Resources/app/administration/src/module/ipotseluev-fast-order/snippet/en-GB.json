@@ -1,0 +1,36 @@
+{
+    "ipotseluev-fast-order": {
+        "general": {
+            "mainMenuItemGeneral": "Fast Order",
+            "descriptionTextModule": "Module that allows to create fast order on product detail page"
+        },
+        "list": {
+            "addButtonText": "Add Fast Order",
+            "columnProduct": "Product",
+            "columnCustomer": "Customer",
+            "columnCustomerName": "Customer Name",
+            "columnCustomerEmail": "Customer Email",
+            "columnCustomerPhone": "Customer Phone",
+            "columnCustomerMessage": "Customer Message",
+            "columnCreatedAt": "Created At",
+            "columnUpdatedAt": "Updated At",
+            "placeholderSearchBar": "Search fast order..."
+        },
+        "detail": {
+            "nameLabel": "Fast Order",
+            "addButtonText": "Add Fast Order",
+            "inputProduct": "Product",
+            "inputCustomer": "Customer",
+            "inputCustomerName": "Customer Name",
+            "inputCustomerEmail": "Customer Email",
+            "inputCustomerPhone": "Customer Phone",
+            "inputCustomerMessage": "Customer Message",
+            "inputCreatedAt": "Created At",
+            "inputUpdatedAt": "Updated At",
+            "assignProductsLabel" : "Assign Products",
+            "cancelButtonText": "Cancel",
+            "saveButtonText": "Save",
+            "labelProduct": "Product Number"
+        }
+    }
+}

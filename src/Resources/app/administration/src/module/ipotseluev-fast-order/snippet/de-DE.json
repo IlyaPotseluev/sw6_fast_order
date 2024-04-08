@@ -1,0 +1,14 @@
+{
+    "ipotseluev-example": {
+        "general": {
+            "mainMenuItemGeneral": "Fast Order DE",
+            "descriptionTextModule": "Manage this custom module here"
+        },
+        "list": {
+            "addButtonText": "Add example",
+            "columnName": "Name",
+            "columnUpdatedAt": "Updated At",
+            "columnCreatedAt": "Created At"
+        }
+    }
+}
