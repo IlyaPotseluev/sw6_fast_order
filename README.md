@@ -11,8 +11,14 @@
 2. Click "Fast Order" button on previous product's page and create your fast order in modal window
 3. In admin panel go to Orders -> Fast Order 
 
+FEATURES: 
+* Add CMS "Fast Order" for product to "commerce" section. You can add "Fast Order" card for selected product.
+
 # Demonstration
 ![0_Product_Suggest_using_Tabulation_in_CLI](https://github.com/IlyaPotseluev/sw6_fast_order/assets/19282486/3792e269-ab86-47d9-8995-e802a324ce0f)
 ![1_Place_Fast_Order_Popup](https://github.com/IlyaPotseluev/sw6_fast_order/assets/19282486/aa63f85c-8cdc-48ca-b41a-30a9a97515f2)
 ![2_Admin_Fast_Order_List ](https://github.com/IlyaPotseluev/sw6_fast_order/assets/19282486/cc40f873-141f-4681-a751-da85687ed9ec)
 ![3_Admin_Fast_Order_Entity_manipulations](https://github.com/IlyaPotseluev/sw6_fast_order/assets/19282486/2577bcc8-6667-4468-9dcc-8a0b1be1a69a)
+
+CMS 
+![4_Admin_Fast_Order_CMS](https://github.com/IlyaPotseluev/sw6_fast_order/assets/19282486/46e66662-1305-4920-8fb0-3b412e01e0f8)
