@@ -1,0 +1,61 @@
+{
+  "sw-cms": {
+    "blocks": {
+      "commerce": {
+        "fastOrder": {
+          "label": "Fast Order",
+          "infoText": {
+            "tooltipSettingDisabled" : "This element's product data is automatically loaded by the product associated with this layout. The content just shows a sample preview."
+          },
+          "config": {
+            "label": {
+              "selection": "Product"
+            },
+            "placeholder": {
+              "selection": "Select a product ..."
+            }
+          },
+          "component": {
+            "label": {
+              "actionOrder": "Fast Order",
+              "taxInfo": "Prices incl. VAT plus shipping costs",
+              "deliveryShippingFree": "Free shipping",
+              "deliveryTime": "Available, delivery time {name}",
+              "variants": "Variants",
+              "productNumber": "Product number:"
+            }
+          }
+
+        }
+      }
+    },
+
+    "elements": {
+      "fastOrder": {
+        "label": "Fast Order CMS Element",
+        "infoText": {
+          "tooltipSettingDisabled" : "This element's product data is automatically loaded by the product associated with this layout. The content just shows a sample preview."
+        },
+        "config": {
+          "label": {
+            "selection": "Product"
+          },
+          "placeholder": {
+            "selection": "Select a product ..."
+          }
+        },
+        "component": {
+          "label": {
+            "actionOrder": "Fast Order",
+            "taxInfo": "Prices incl. VAT plus shipping costs",
+            "deliveryShippingFree": "Free shipping",
+            "deliveryTime": "Available, delivery time {name}",
+            "variants": "Variants",
+            "productNumber": "Product number:"
+          }
+        }
+
+      }
+    }
+  }
+}

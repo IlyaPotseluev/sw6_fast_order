@@ -1,0 +1,124 @@
+<!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+{% block sw_cms_el_fast_order %}
+<div
+    class="sw-cms-el-fast-order"
+    :style="alignStyle"
+>
+    <div
+        v-if="(product && !isProductPageType) || currentDemoEntity"
+        class="sw-cms-el-fast-order__content"
+    >
+
+        <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+        {% block sw_cms_el_fast_order_product_info %}
+        <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+        {% block sw_cms_el_fast_order_product_price %}
+        <div class="sw-cms-el-fast-order__price">
+            {{ currencyFilter(product.price[0].gross, 'EUR') }}
+        </div>
+        {% endblock %}
+
+        <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+        {% block sw_cms_el_fast_order_product_tax_info %}
+        <div class="sw-cms-el-fast-order__tax-info">
+            {{ $tc('sw-cms.elements.fastOrder.component.label.taxInfo') }}
+        </div>
+        {% endblock %}
+
+        <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+        {% block sw_cms_el_fast_order_product_shipping_info %}
+        <ul class="sw-cms-el-fast-order__shipping-info">
+            <li v-if="product.shippingFree">
+                {{ $tc('sw-cms.elements.fastOrder.component.label.deliveryShippingFree') }}
+            </li>
+            <li v-if="product.deliveryTime">
+                {{ $tc('sw-cms.elements.fastOrder.component.label.deliveryTime', 0, {name: placeholder(product, 'deliveryTime.name', product.deliveryTime.name)}) }}
+            </li>
+        </ul>
+        {% endblock %}
+
+        <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+        {% block sw_cms_el_fast_order_product_variants %}
+        <template v-if="product.parentId || product.childCount > 0">
+            <p class="sw-cms-el-fast-order__variant-title">
+                {{ $tc('sw-cms.elements.fastOrder.component.label.variants') }}
+            </p>
+            <div class="sw-cms-el-fast-order__variants">
+                <div class="sw-cms-el-fast-order__variant"></div>
+                <div class="sw-cms-el-fast-order__variant"></div>
+                <div class="sw-cms-el-fast-order__variant"></div>
+            </div>
+        </template>
+        {% endblock %}
+
+        <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+        {% block sw_cms_el_fast_order_form %}
+        <div class="sw-cms-el-fast-order__form">
+            <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+            {% block sw_cms_element_fast_order_form_action %}
+            <div class="sw-cms-el-fast-order__actions">
+                <a
+                    href="#"
+                    class="sw-cms-el-fast-order__buy-action"
+                >
+                    {{ $tc('sw-cms.elements.fastOrder.component.label.actionOrder') }}
+                </a>
+            </div>
+            {% endblock %}
+
+        </div>
+        {% endblock %}
+
+        <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+        {% block sw_cms_element_fast_order_product_number %}
+        <div class="sw-cms-el-fast-order__product-number">
+            <span class="sw-cms-el-fast-order__product-number-title">
+                {{ $tc('sw-cms.elements.fastOrder.component.label.productNumber') }}
+            </span>
+            <span>{{ product.productNumber }}</span>
+        </div>
+        {% endblock %}
+        {% endblock %}
+    </div>
+
+    <div
+        v-else
+        class="sw-cms-el-fast-order__skeleton"
+    >
+
+        <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+        {% block sw_cms_element_fastorder_skeleton %}
+        <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+        {% block sw_cms_element_fastorder_skeleton_info %}
+        <div class="sw-cms-el-fast-order__placeholder"></div>
+        <div class="sw-cms-el-fast-order__placeholder"></div>
+        <div class="sw-cms-el-fast-order__placeholder"></div>
+        <div class="sw-cms-el-fast-order__placeholder"></div>
+        {% endblock %}
+
+        <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+        {% block sw_cms_element_fastorder_skeleton_form %}
+        <div class="sw-cms-el-fast-order__form">
+            <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+            {% block sw_cms_element_fast_order_skeleton_action %}
+            <div class="sw-cms-el-fast-order__actions">
+                <a
+                    href="#"
+                    class="sw-cms-el-fast-order__buy-action"
+                >
+                    {{ $tc('sw-cms.elements.fastOrder.component.label.actionOrder') }}
+                </a>
+            </div>
+            {% endblock %}
+
+        </div>
+        {% endblock %}
+
+        <!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+        {% block sw_cms_element_fastorder_skeleton_product_number %}
+        <div class="sw-cms-el-fast-order__placeholder"></div>
+        {% endblock %}
+        {% endblock %}
+    </div>
+</div>
+{% endblock %}
