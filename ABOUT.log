@@ -1,0 +1,21 @@
+1. Fast Order:
+
+Workflow:
+1) Create fast order from Product Page. It is available on some products.
+2) Button "Fast Order" opens POPUP.
+3) POPUP shows fields: "Name", "Email", "Phone", "Message" - that is opened fields
+4) Product ID, Customer ID (if logged in) - is hidden fields
+
+Future Features:
+
+1) Convert fast order to real order in admin
+2) Apply discount if fast order - on convertation
+3) Select different rules on different conditions if fast order
+
+Need to do:
+1. Email notification on Fast Order Create event
+2. Feature for sending mail from admin to customer
+
+New features:
+
+1. Added CMS with Fast Product. Select product from "Fast Order Enabled" products, image, and put it to landing page.

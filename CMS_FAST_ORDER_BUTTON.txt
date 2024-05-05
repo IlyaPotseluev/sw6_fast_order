@@ -1,0 +1,6 @@
+CMS FAST ORDER BUTTON. PLAN FOR DEVELOPMENT
+
+1. First we need to select a good example which we will edit to create.
+I selected "image gallery and buy box". I need only "buy box"
+
+2.

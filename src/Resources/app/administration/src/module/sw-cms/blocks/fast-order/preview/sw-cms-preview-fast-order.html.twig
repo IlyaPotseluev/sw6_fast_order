@@ -1,0 +1,40 @@
+<!-- eslint-disable-next-line sw-deprecation-rules/no-twigjs-blocks -->
+{% block sw_cms_block_fast_order_preview %}
+<div class="sw-cms-preview-fast-order">
+    <div class="sw-cms-preview-fast-order__gallery">
+        <div class="sw-cms-preview-fast-order__images">
+            <img
+                :src="assetFilter('/administration/static/img/cms/preview_glasses_small.jpg')"
+                alt=""
+            >
+            <img
+                :src="assetFilter('/administration/static/img/cms/preview_glasses_small.jpg')"
+                alt=""
+            >
+            <img
+                :src="assetFilter('/administration/static/img/cms/preview_glasses_small.jpg')"
+                alt=""
+            >
+        </div>
+
+        <div class="sw-cms-preview-fast-order__slider">
+            <sw-icon
+                name="regular-chevron-left-xs"
+                size="12"
+            />
+            <img
+                :src="assetFilter('/administration/static/img/cms/preview_glasses_small.jpg')"
+                alt=""
+            >
+            <sw-icon
+                name="regular-chevron-right-xs"
+                size="12"
+            />
+        </div>
+    </div>
+
+    <div class="sw-cms-preview-fast-order">
+        <sw-cms-el-preview-fast-order />
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,31 @@
+{% block element_fast_order %}
+    {% set config = element.fieldConfig.elements %}
+
+    {% set fastOrderOptions = {
+        elementId: element.id
+    } %}
+    {{ element.data.product.sku }}
+    {% if element.data.product %}
+
+        <div class="cms-element-{{ element.type }}{% if config.alignment.value %} has-vertical-alignment{% endif %}"
+             data-fast-order="true"
+             data-fast-order-options='{{ fastOrderOptions|json_encode }}'>
+
+            {% block element_fast_order_inner %}
+                {% if config.alignment.value %}
+                    <div class="cms-element-alignment{% if config.alignment.value == "center" %} align-self-center{% elseif config.alignment.value == "flex-end" %} align-self-end{% else %} align-self-start{% endif %}">
+                {% endif %}
+                    {% sw_include '@IpotseluevFastOrder/storefront/component/fast-order/fast-order.html.twig' with {
+                        'product': element.data.product,
+                        'configuratorSettings': element.data.configuratorSettings,
+                        'totalReviews': element.data.totalReviews,
+                        'elementId': element.id,
+                        'pageType': cmsPage.type
+                    } %}
+                {% if config.alignment.value %}
+                    </div>
+                {% endif %}
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}
