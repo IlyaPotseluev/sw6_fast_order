@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace Ipotseluev\FastOrder\Command\Helper;
 
-class OptionCompletion
+class Option
 {
     private $attribute;
     private $mode;

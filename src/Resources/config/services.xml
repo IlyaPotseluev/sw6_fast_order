@@ -17,14 +17,14 @@
             <argument type="service" id="fast_order.repository"/>
             <argument key="$name">Show Fast Order List</argument>
         </service>
-        <service id="Ipotseluev\FastOrder\Command\Helper\OptionCompletionFabric">
+        <service id="Ipotseluev\FastOrder\Command\Helper\OptionFabric">
             <argument type="service" id="product.repository"/>
             <argument type="service" id="customer.repository"/>
         </service>
         <service id="Ipotseluev\FastOrder\Command\FastOrderCreateCommand">
             <tag name="console.command"/>
             <argument type="service" id="fast_order.repository"/>
-            <argument type="service" id="Ipotseluev\FastOrder\Command\Helper\OptionCompletionFabric"/>
+            <argument type="service" id="Ipotseluev\FastOrder\Command\Helper\OptionFabric"/>
             <argument type="service" id="product.repository"/>
             <argument key="$name">Create Fast Order</argument>
         </service>
